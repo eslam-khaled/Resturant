@@ -1,0 +1,274 @@
+﻿body {
+}
+
+#MyLogo {
+    border-radius: 300px 300px;
+    height: 50px;
+    width: 50px;
+}
+
+.bg-Nav-color {
+    background-color: #c49704
+}
+
+#navbarTogglerDemo01 ul li a {
+    color: #ffffff;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    height: 150%
+}
+
+    #navbarTogglerDemo01 ul li a:hover {
+        background-color: #dbcc1c
+    }
+
+#carouselExampleCaptions {
+    margin-top: 5.6%;
+}
+
+#Carousel img {
+    height: 500px;
+}
+
+.About {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+    .About::after {
+        content: '';
+        display: inline-block;
+        width: 5%;
+        height: 100%;
+        border-bottom: 2px solid #000;
+        position: relative;
+        top: 20px;
+        right: 90px;
+    }
+
+#VideoAbout {
+    width: 370px;
+    height: 300px;
+    border: solid 2px black;
+    position: relative;
+    left: 100px;
+    top: 20px;
+}
+
+.hr {
+    display: block;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    width: 70%;
+    border-color: black;
+}
+
+footer {
+    background-color: cornflowerblue;
+    margin-top: 100px;
+}
+
+    footer a {
+        color: black;
+    }
+
+.vl {
+    border-right: 6px solid black;
+    height: 455px;
+    position: absolute;
+    left: 560px;
+    bottom: -340px;
+}
+
+#UlContact {
+    padding-top: 100px;
+    font-family: "Font Awesome\ 5 Free";
+    font-weight: 900;
+}
+
+    #UlContact li:first-child:before {
+        content: "\f095";
+        position: absolute;
+        left: -30px;
+        top: 5px;
+        font-size: 30px;
+        color: black;
+    }
+
+    #UlContact li:nth-child(2):before {
+        content: "\f0e0";
+        position: absolute;
+        left: -30px;
+        top: 5px;
+        font-size: 30px;
+        color: black;
+    }
+
+    #UlContact li:nth-child(3):before {
+        content: "\f3c5";
+        position: absolute;
+        left: -30px;
+        top: 5px;
+        font-size: 30px;
+        color: black;
+    }
+
+    #UlContact li:nth-child(4):before {
+        content: "\f017";
+        position: absolute;
+        left: -30px;
+        top: 5px;
+        font-size: 30px;
+        color: black;
+    }
+
+#CoverBanner {
+    background-image: url('../Images/CoverBanner2.jpg');
+    height: 400px;
+    background-size: cover;
+    margin-top: 50px;
+}
+
+    #CoverBanner:after {
+        content: "Quality Is Our Recipe";
+        position: absolute;
+        top: 50%;
+        left: 380px;
+        font-size: 70px;
+        font-family: auto;
+        color: coral
+    }
+
+.PersonsImg {
+    height: 140px;
+    width: 140px;
+    border-radius: 50% 50%;
+    padding-right: 8px;
+}
+
+.personeName {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.paragraph {
+    text-align: center;
+    position: relative;
+    left: 160px;
+    font-size: large
+}
+
+#VideoCover {
+    background-image: url('../Images/Vcover.png');
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    margin-top: 50px;
+}
+
+.AboutParagraph {
+    text-align: left;
+    position: relative;
+    left: 20px;
+    font-size: large
+}
+
+#VideoBtn {
+    position: relative;
+    top: 50%;
+    left: 443px;
+    height: 5rem;
+    width: 10rem;
+}
+
+#video {
+    width: 470px;
+    height: 400px;
+}
+
+#BannerServices {
+    background-image: url('../Images/BannerServices.png');
+    height: 400px;
+    background-size: cover;
+    margin-top: 50px;
+}
+
+#Questions {
+    background-color: dimgrey
+}
+
+#BannerProducts {
+    background-image: url('../Images/BannerProducts.png');
+    height: 400px;
+    background-size: cover;
+    margin-top: 9%;
+    border-radius: 1% 1% 1% 1%;
+    position: relative;
+}
+
+    #BannerProducts:after {
+        content: "We Care About Your Choice";
+        position: absolute;
+        top: 48%;
+        left: 5%;
+        font-size: 300%;
+        font-family: auto;
+        color: gold
+    }
+
+.btn-menue {
+    background-color: #c49704;
+    position: absolute;
+    top: 67%;
+    left: 22%;
+}
+/*------------------------------------------------*/
+.gallery {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+}
+
+    .gallery .pics {
+        -webkit-transition: all 350ms ease;
+        transition: all 150ms ease;
+        width: 70%;
+        height: 30%;
+    }
+
+    .gallery .animation {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+@media (max-width: 450px) {
+    .gallery {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn.filter {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+    }
+}
+
+i {
+    color: #0015fe;
+    font-size: larger;
+}

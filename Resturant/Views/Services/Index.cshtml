@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <main>
+        <!--Banner-->
+        <div id="BannerServices" class="container">
+        </div>
+        <!--Bread Crumb-->
+
+        <nav style="margin-top:50px;" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Services</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+        <!--Line-->
+        <hr class="hr" />
+        <h1 class="About">Common Question!</h1>
+        <!--Questions-->
+        <div id="Questions" class="container-fluid">
+            <div style="position:relative; left:400px" class="col-lg-4 col-md-6 col-sm-12">
+                <div id="accordion">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                Question #1
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                            <div class="card-body">
+                                Answer..
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                Question #2
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                Answer..
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                Question #3
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                Answer..
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div style="position:relative; left:400px" class="col-lg-4 col-md-6 col-sm-12">
+                <div id="accordion1">
+
+                    <div class="card">
+                        <div class="collapsed card-header">
+                            <a class="card-link" data-toggle="collapse" href="#collapsefour">
+                                Question #4
+                            </a>
+                        </div>
+                        <div id="collapsefour" class="collapse show" data-parent="#accordion1">
+                            <div class="card-body">
+                                Answer..
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#collapsefive">
+                                Question #5
+                            </a>
+                        </div>
+                        <div id="collapsefive" class="collapse" data-parent="#accordion1">
+                            <div class="card-body">
+                                Answer..
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#collapsesex">
+                                Question #6
+                            </a>
+                        </div>
+                        <div id="collapsesex" class="collapse" data-parent="#accordion1">
+                            <div class="card-body">
+                                Answer..
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <hr class="hr" />
+
+    </main>
+

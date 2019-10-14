@@ -1,99 +1,204 @@
-﻿
+﻿@model Resturant.Models.Product
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-    <main>
-        <!--Banner-->
-        <div id="BannerProducts" class="container">
-            <button type="button" class="btn btn-menue">Check Our Menue</button>
-        </div>
-        <hr class="hr" />
+<main>
+    <!--Banner-->
+    <div id="BannerProducts" class="container">
+        <button type="button" class="btn btn-menue">Check Our Menue</button>
+    </div>
+    <hr class="hr" />
 
-        <h1 class="About">Our Products<i style="color:red" class="fas fa-heart"></i></h1>
+    <h1 class="About">Our Products<i style="color:red" class="fas fa-heart"></i></h1>
 
-        <!--Gallery-->
-        <!-- Grid row -->
-        <div class="row">
+    <!--Gallery-->
+    <!-- Grid row -->
+    <div class="row">
 
-            <!-- Grid column -->
-            <div class="col-md-12 d-flex justify-content-center mb-5">
+        <!-- Grid column -->
+        <div class="col-lg-4 col-md-12 mb-4">
+            <!--Modal: Name-->
 
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All Categories</button>
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Main Dishes</button>
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Desserts</button>
+            <a href="@Url.Action("ProductDetails", "Products",new { id=25})"class="edit">
 
-            </div>
-            <!-- Grid column -->
+                <img class="img-fluid z-depth-1" src="~/Images/ProductsImgs/alireza-etemadi-JBIK4QZOFfc-unsplash.jpg" alt="video"
+                     data-toggle="modal" data-target="#modal1">
+            </a>
 
-        </div>
-        <!-- Grid row -->
-        <!-- Grid row -->
-        <div class="gallery mx-4" id="gallery">
+            <!--Modal: Name-->
+            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
 
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 1">
-                <img class="img-fluid" src="../Images/ProductsImgs/alex-munsell-auIbTAcSH6E-unsplash.jpg" alt="Card image cap" />
+                    <!--Content-->
+                    <div class="modal-content">
 
+                        <!--Body-->
+                        <div class="modal-body mb-0 p-0">
+
+                            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                <img class="embed-responsive-item" src="~/Images/ProductsImgs/alireza-etemadi-JBIK4QZOFfc-unsplash.jpg"
+                                     allowfullscreen />.
+                                <div>
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Name)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Name)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer justify-content-center">
+                            <span class="mr-4">Spread the word!</span>
+                            <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
+                            <!--Twitter-->
+                            <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
+                            <!--Google +-->
+                            <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
+                            <!--Linkedin-->
+                            <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
+
+                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+
+                        </div>
+
+                    </div>
+                    <!--/.Content-->
+
+                </div>
             </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 2">
-                <img class="img-fluid" src="../Images/ProductsImgs/brooke-lark-1Rm9GLHV0UA-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 2">
-                <img class="img-fluid" src="../Images/ProductsImgs/brooke-lark-HlNcigvUi4Q-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 1">
-                <img class="img-fluid" src="../Images/ProductsImgs/CoverBanner2.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 1">
-                <img class="img-fluid" src="../Images/ProductsImgs/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 1">
-                <img class="img-fluid" src="../Images/ProductsImgs/po.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 1">
-                <img class="img-fluid" src="../Images/ProductsImgs/emiliano-vittoriosi-OFismyezPnY-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 2">
-                <img class="img-fluid" src="../Images/ProductsImgs/alireza-etemadi-JBIK4QZOFfc-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 2">
-                <img class="img-fluid" src="../Images/ProductsImgs/pablo-merchan-montes-MXovqM130UI-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 2">
-                <img class="img-fluid" src="../Images/ProductsImgs/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 2">
-                <img class="img-fluid" src="../Images/ProductsImgs/jill-heyer-toxlLueLNDs-unsplash.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 1">
-                <img class="img-fluid" src="../Images/ProductsImgs/Untitled design.jpg" alt="Card image cap" />
-            </div>
-            <!-- Grid column -->
-            <div class="mb-3 pics animation all 2">
-                <img class="img-fluid" src="../Images/ProductsImgs/kobby-mendez-idTwDKt2j2o-unsplash.jpg" alt="Card image cap" />
-            </div>
+
 
         </div>
-        <!-- Grid row -->
-    </main>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-lg-4 col-md-6 mb-4">
 
+            <!--Modal: Name-->
+            <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+
+                    <!--Content-->
+                    <div class="modal-content">
+
+                        <!--Body-->
+                        <div class="modal-body mb-0 p-0">
+
+                            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                <img class="embed-responsive-item" src="~/Images/ProductsImgs/brooke-lark-1Rm9GLHV0UA-unsplash.jpg"
+                                     allowfullscreen />
+                                <div>
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Name)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Name)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer justify-content-center">
+                            <span class="mr-4">Spread the word!</span>
+                            <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
+                            <!--Twitter-->
+                            <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
+                            <!--Google +-->
+                            <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
+                            <!--Linkedin-->
+                            <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
+
+                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+
+                        </div>
+
+                    </div>
+                    <!--/.Content-->
+
+                </div>
+            </div>
+            <!--Modal: Name-->
+
+            <a>
+                <img class="img-fluid z-depth-1" src="~/Images/ProductsImgs/brooke-lark-1Rm9GLHV0UA-unsplash.jpg" alt="video"
+                     data-toggle="modal" data-target="#modal6">
+            </a>
+
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <!--Modal: Name-->
+            <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+
+                    <!--Content-->
+                    <div class="modal-content">
+
+                        <!--Body-->
+                        <div class="modal-body mb-0 p-0">
+
+                            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                <img class="embed-responsive-item" src="~/Images/ProductsImgs/emiliano-vittoriosi-OFismyezPnY-unsplash.jpg"
+                                     allowfullscreen />
+                            </div>
+
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer justify-content-center">
+                            <span class="mr-4">Spread the word!</span>
+                            <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
+                            <!--Twitter-->
+                            <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
+                            <!--Google +-->
+                            <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
+                            <!--Linkedin-->
+                            <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
+
+                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+
+                        </div>
+
+                    </div>
+                    <!--/.Content-->
+
+                </div>
+            </div>
+            <!--Modal: Name-->
+
+            <a>
+                <img class="img-fluid z-depth-1" src="~/Images/ProductsImgs/emiliano-vittoriosi-OFismyezPnY-unsplash.jpg" alt="video"
+                     data-toggle="modal" data-target="#modal4">
+            </a>
+
+        </div>
+        <!-- Grid column -->
+
+    </div>
+</main>
+<script>
+    $('.edit').click(function () {
+                var url = $(this).attr('href');
+                window.open(url, "popupWindow", "width=900,height=600,scrollbars=yes");
+                return false;
+            });
+
+
+</script>
+@Scripts.Render("~/bundles/jquery")

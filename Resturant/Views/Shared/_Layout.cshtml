@@ -3,7 +3,10 @@
 <head>
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("CSS")
+    @Styles.Render("~/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <header>
@@ -18,19 +21,24 @@
                 </a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="Home.html">Home <span class="sr-only">(current)</span></a>
+
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                        <span class="sr-only">(current)</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Products.html">Products</a>
+                        
+                        @Html.ActionLink("Products", "Index","Products", null, new { @class="nav-link"})
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Services.html">Services</a>
+                        
+                        @Html.ActionLink("Services", "Index","Services", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ContactUs.html">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Team.html">Team</a>
+                       
+                        @Html.ActionLink("Team", "Index", "Team", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="About.html">About</a>
@@ -45,6 +53,7 @@
     </header>
 
     <div class="container body-content">
+
         @*Metas*@
         <meta charset="utf-8" />
         <meta name="author" content="Smarter Than Smarter" />
@@ -59,6 +68,7 @@
         @*BootStrap*@
         <link href="~/Scripts/css/bootstrap.min.css" rel="stylesheet" />
         <script src="~/Scripts/bootstrap.min.js"></script>
+
         @RenderBody()
         <hr />
         @*Footer*@
@@ -208,4 +218,5 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+@*JavaScript*@
 <script src="~/JS/JavaScript.js"></script>

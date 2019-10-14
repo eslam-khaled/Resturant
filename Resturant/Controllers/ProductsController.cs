@@ -14,10 +14,29 @@ namespace Resturant.Controllers
         {
             _context = new ResturantEntities1();
         }
-        // GET: Products
+        // GET: All Products
         public ActionResult Index()
+        {
+            var ResAll = _context.Products;
+            return View();
+        }
+        //Get: Product Details
+        public ActionResult ProductDetails(int? id)
+        {
+            var ResDetails = _context.Products.Where(x => x.ProductID == id).FirstOrDefault();
+            return View(ResDetails);
+        }
+        public ActionResult AddProducts()
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult AddProducts(Product product)
+        {
+                _context.Products.Add(product);
+                _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

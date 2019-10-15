@@ -1963,6 +1963,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Views\ContactUs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

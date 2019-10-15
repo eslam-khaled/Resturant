@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,11 +31,20 @@ namespace Resturant.Controllers
         {
             return View();
         }
+
+
+
         [HttpPost]
-        public ActionResult AddProducts(Product product)
+        public ActionResult AddProducts(Product product, HttpPostedFileBase upload)
         {
-                _context.Products.Add(product);
-                _context.SaveChanges();
+            var fileName = Path.GetFileName(upload.FileName);
+            var path = Path.Combine(Server.MapPath("~/Uploads"), fileName);
+           // string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+            upload.SaveAs(path);
+            product.PicturePath = "/Uploads/" + upload.FileName;
+
+            _context.Products.Add(product);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 

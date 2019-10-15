@@ -1,23 +1,24 @@
-﻿body {
-}
+﻿
 
 #MyLogo {
     border-radius: 300px 300px;
     height: 50px;
     width: 50px;
 }
-
+nav{
+    padding-bottom:100px;
+}
 .bg-Nav-color {
     background-color: #c49704
 }
 
-#navbarTogglerDemo01 ul li a {
+nav ul li a {
     color: #ffffff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     height: 150%
 }
 
-    #navbarTogglerDemo01 ul li a:hover {
+    nav ul li a:hover {
         background-color: #dbcc1c
     }
 
@@ -227,7 +228,7 @@ footer {
     top: 67%;
     left: 22%;
 }
-/*------------------------------------------------*/
+
 .gallery {
     -webkit-column-count: 3;
     -moz-column-count: 3;

@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("CSS")
     @Styles.Render("~/Content/bootstrap.css")
@@ -26,22 +25,24 @@
                         <span class="sr-only">(current)</span>
                     </li>
                     <li class="nav-item">
-                        
-                        @Html.ActionLink("Products", "Index","Products", null, new { @class="nav-link"})
+
+                        @Html.ActionLink("Products", "Index", "Products", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        
-                        @Html.ActionLink("Services", "Index","Services", null, new { @class = "nav-link" })
+
+                        @Html.ActionLink("Services", "Index", "Services", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ContactUs.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                       
+
                         @Html.ActionLink("Team", "Index", "Team", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="About.html">About</a>
+
+                        @Html.ActionLink("Contact Us", "Contact", "Home", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+
+                        @Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

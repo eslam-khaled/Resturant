@@ -16,10 +16,10 @@ namespace Resturant.Controllers
             _context = new ResturantEntities1();
         }
         // GET: All Products
-        public ActionResult Index()
+        public ActionResult ProductIndex()
         {
-            var ResAll = _context.Products;
-            return View();
+            var ResAll = _context.Products.ToList();
+            return View(ResAll);
         }
         //Get: Product Details
         public ActionResult ProductDetails(int? id)
@@ -37,15 +37,14 @@ namespace Resturant.Controllers
         [HttpPost]
         public ActionResult AddProducts(Product product, HttpPostedFileBase upload)
         {
-            var fileName = Path.GetFileName(upload.FileName);
-            var path = Path.Combine(Server.MapPath("~/Uploads"), fileName);
-           // string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+
+            string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
             upload.SaveAs(path);
             product.PicturePath = "/Uploads/" + upload.FileName;
 
             _context.Products.Add(product);
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ProductIndex");
         }
 
     }

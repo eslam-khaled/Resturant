@@ -273,3 +273,14 @@ i {
     color: #0015fe;
     font-size: larger;
 }
+#AddNew{
+    height:100%;
+    width:20%;
+    
+}
+#myFig a img {
+    height: 20em;
+}
+    #myFig a img:hover {
+        opacity: 0.7;
+    }

@@ -35,6 +35,7 @@ namespace Resturant.Controllers
 
 
         [HttpPost]
+        //[Route("Products/AddProducts/id")]
         public ActionResult AddProducts(Product product, HttpPostedFileBase upload)
         {
 

@@ -9,6 +9,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.PicturePath)
+        </dt>
+
+        <dd>
+            <img style="height:20em; width:20em" src="@Model.PicturePath" />
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
@@ -32,13 +39,7 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PicturePath)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PicturePath)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Size)

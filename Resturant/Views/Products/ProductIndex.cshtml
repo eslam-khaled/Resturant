@@ -26,15 +26,16 @@
             <div id="mdb-lightbox-ui"></div>
 
             <div class="mdb-lightbox no-margin row">
+                <!---NOTE: the data-size below doesn't allow to upload a picture with a size more than it--->
                 @foreach (var item in Model)
                 {
                     <figure id="myFig" class="col-md-3">
-                        <a class="black-text" href="#"
+
+                        <a class="black-text" href=" @Url.Action("ProductDetails","Products",new { id=item.ProductID} )"
                            data-size="1600x1067">
                             <img alt="picture" src="@item.PicturePath"
                                  class="img-fluid" />
                             <h3 class="text-center my-3">@item.Name</h3>
-
                         </a>
                     </figure>
                 }

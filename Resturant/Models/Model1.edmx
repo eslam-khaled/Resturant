@@ -12,6 +12,7 @@
           <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="ArticleText" Type="nvarchar(max)" />
+          <Property Name="TitleImage" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Comments">
           <Key>
@@ -20,15 +21,29 @@
           <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CommentText" Type="nvarchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="LoginInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastLoginDate" Type="datetime" />
+          <Property Name="LoginFailedCount" Type="int" />
+          <Property Name="LoginIPAddress" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerTimeZone" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastAccessedDate" Type="datetime" />
+          <Property Name="AccountLocked" Type="bit" />
+        </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Price" Type="float" />
-          <Property Name="PicturePath" Type="nvarchar" MaxLength="100" />
+          <Property Name="PicturePath" Type="nvarchar(max)" />
           <Property Name="Size" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Questions">
@@ -64,9 +79,14 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" />
         </EntityType>-->
+        <Function Name="GetLoginInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ResturantModelStoreContainer">
           <EntitySet Name="Atricle" EntityType="Self.Atricle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginInfo" EntityType="Self.LoginInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
@@ -83,6 +103,7 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
           <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ArticleText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -96,10 +117,10 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
             <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
-          <Property Name="PicturePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PicturePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Question">
@@ -132,7 +153,26 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
           <EntitySet Name="Questions" EntityType="Self.Question" />
           <EntitySet Name="Services" EntityType="Self.Service" />
           <EntitySet Name="Subscribes" EntityType="Self.Subscribe" />
+          <EntitySet Name="LoginInfoes" EntityType="ResturantModel.LoginInfo" />
+          <FunctionImport Name="GetLoginInfo" ReturnType="Collection(String)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <EntityType Name="LoginInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="LoginFailedCount" Type="Int32" />
+          <Property Name="LoginIPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerTimeZone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastAccessedDate" Type="DateTime" Precision="3" />
+          <Property Name="AccountLocked" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -142,6 +182,7 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
           <EntitySetMapping Name="Atricles">
             <EntityTypeMapping TypeName="ResturantModel.Atricle">
               <MappingFragment StoreEntitySet="Atricle">
+                <ScalarProperty Name="TitleImage" ColumnName="TitleImage" />
                 <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ArticleText" ColumnName="ArticleText" />
@@ -194,6 +235,22 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LoginInfoes">
+            <EntityTypeMapping TypeName="ResturantModel.LoginInfo">
+              <MappingFragment StoreEntitySet="LoginInfo">
+                <ScalarProperty Name="AccountLocked" ColumnName="AccountLocked" />
+                <ScalarProperty Name="LastAccessedDate" ColumnName="LastAccessedDate" />
+                <ScalarProperty Name="CustomerTimeZone" ColumnName="CustomerTimeZone" />
+                <ScalarProperty Name="LoginIPAddress" ColumnName="LoginIPAddress" />
+                <ScalarProperty Name="LoginFailedCount" ColumnName="LoginFailedCount" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetLoginInfo" FunctionName="ResturantModel.Store.GetLoginInfo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

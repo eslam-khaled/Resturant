@@ -33,7 +33,6 @@ namespace Resturant.Controllers
         }
 
 
-
         [HttpPost]
         //[Route("Products/AddProducts/id")]
         public ActionResult AddProducts(Product product, HttpPostedFileBase upload)
@@ -47,6 +46,18 @@ namespace Resturant.Controllers
             _context.SaveChanges();
             return RedirectToAction("ProductIndex");
         }
+        //public ActionResult EditProduct(int? id)
+        //{
+        //    Product product = _context.Products.Find(id);
+        //    return View();
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult EditProduct()
+        //{
 
+        //    return View();
+        //}
     }
+
 }

@@ -12,6 +12,8 @@ namespace Resturant.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ResturantEntities1 : DbContext
     {
@@ -31,5 +33,19 @@ namespace Resturant.Models
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Subscribe> Subscribes { get; set; }
+        public virtual DbSet<LoginInfo> LoginInfoes { get; set; }
+    
+        public virtual ObjectResult<string> GetLoginInfo(string userName, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("GetLoginInfo", userNameParameter, passwordParameter);
+        }
     }
 }

@@ -12,11 +12,16 @@ namespace Resturant.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Atricle
+    public partial class LoginInfo
     {
-        public int ArticleID { get; set; }
-        public string Title { get; set; }
-        public string ArticleText { get; set; }
-        public string TitleImage { get; set; }
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public Nullable<System.DateTime> LastLoginDate { get; set; }
+        public Nullable<int> LoginFailedCount { get; set; }
+        public string LoginIPAddress { get; set; }
+        public string CustomerTimeZone { get; set; }
+        public Nullable<System.DateTime> LastAccessedDate { get; set; }
+        public Nullable<bool> AccountLocked { get; set; }
     }
 }

@@ -168,6 +168,7 @@
     <Compile Include="Models\Subscribe.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\test\getTimeAgo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1959,7 +1960,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Uploads\" />
+    <Folder Include="Uploads\userImage\" />
     <Folder Include="Views\ContactUs\" />
   </ItemGroup>
   <ItemGroup>

@@ -17,5 +17,6 @@ namespace Resturant.Models
         public int ArticleID { get; set; }
         public string Title { get; set; }
         public string ArticleText { get; set; }
+        public string TitleImage { get; set; }
     }
 }

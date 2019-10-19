@@ -1,15 +1,29 @@
-﻿
+﻿/***************Common Classes****************/
+.hr {
+    display: block;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    width: 70%;
+    border-color: #57a99a;
+}
 
+/***************Header****************/
 #MyLogo {
     border-radius: 300px 300px;
     height: 50px;
     width: 50px;
 }
-nav{
-    padding-bottom:100px;
+
+nav {
+    padding-bottom: 100px;
 }
+
 .bg-Nav-color {
-    background-color: #c49704
+    background-color: #57a99a
 }
 
 nav ul li a {
@@ -19,9 +33,25 @@ nav ul li a {
 }
 
     nav ul li a:hover {
-        background-color: #dbcc1c
+        background-color: #60bdc3
     }
 
+.navbar .btn{
+    
+}
+    .navbar .btn:hover {
+        background-color: #60bdc3
+    }
+/***************Footer****************/
+ footer {
+        background-color: #57a99a;
+        margin-top: 100px;
+    }
+
+    footer a {
+        color: black;
+    }
+/***************Home Page****************/
 #carouselExampleCaptions {
     margin-top: 5.6%;
 }
@@ -56,27 +86,6 @@ nav ul li a {
     left: 100px;
     top: 20px;
 }
-
-.hr {
-    display: block;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 1px;
-    width: 70%;
-    border-color: black;
-}
-
-footer {
-    background-color: cornflowerblue;
-    margin-top: 100px;
-}
-
-    footer a {
-        color: black;
-    }
 
 .vl {
     border-right: 6px solid black;
@@ -192,17 +201,26 @@ footer {
     height: 400px;
 }
 
-#BannerServices {
-    background-image: url('../Images/BannerServices.png');
+/***************services page****************/
+.SevicesPanner img {
     height: 400px;
-    background-size: cover;
+    width: 100%;
+}
+
+.ServicesMain {
     margin-top: 50px;
 }
 
-#Questions {
-    background-color: dimgrey
+    .ServicesMain section {
+        margin-top: 40px;
+    }
+
+.ServicesDelivary {
+    background-color: burlywood;
 }
 
+
+/***************product page****************/
 #BannerProducts {
     background-image: url('../Images/BannerProducts.png');
     height: 400px;
@@ -273,14 +291,16 @@ i {
     color: #0015fe;
     font-size: larger;
 }
-#AddNew{
-    height:100%;
-    width:20%;
-    
+
+#AddNew {
+    height: 100%;
+    width: 20%;
 }
+
 #myFig a img {
     height: 20em;
 }
+
     #myFig a img:hover {
         opacity: 0.9;
     }

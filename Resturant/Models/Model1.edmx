@@ -20,12 +20,15 @@
           </Key>
           <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CommentText" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserName" Type="nchar" MaxLength="50" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" />
+          <Property Name="CommentDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LoginInfo">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="20" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" />
           <Property Name="LastLoginDate" Type="datetime" />
@@ -111,6 +114,9 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
           </Key>
           <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CommentText" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="PhotoPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -192,6 +198,9 @@ warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key de
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="ResturantModel.Comment">
               <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="CommentID" ColumnName="CommentID" />
                 <ScalarProperty Name="CommentText" ColumnName="CommentText" />
               </MappingFragment>

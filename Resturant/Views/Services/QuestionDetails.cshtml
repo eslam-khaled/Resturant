@@ -1,0 +1,35 @@
+﻿@model Resturant.Models.Question
+
+@{
+    ViewBag.Title = "QuestionDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>QuestionDetails</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Question1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuestionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

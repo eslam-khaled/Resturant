@@ -1,117 +1,73 @@
-﻿
+﻿@model List<Resturant.Models.Question>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <main>
-        <!--Banner-->
-        <div id="BannerServices" class="container">
+<main class="ServicesMain col-12">
+    @*panner*@
+    <section class="SevicesPanner">
+        <div>
+            <img src="~/Images/ProductsImgs/howcuttingdo.jpg" />
         </div>
-        <!--Bread Crumb-->
+    </section>
 
-        <nav style="margin-top:50px;" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Services</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data</li>
-            </ol>
-        </nav>
-        <!--Line-->
-        <hr class="hr" />
-        <h1 class="About">Common Question!</h1>
-        <!--Questions-->
-        <div id="Questions" class="container-fluid">
-            <div style="position:relative; left:400px" class="col-lg-4 col-md-6 col-sm-12">
-                <div id="accordion">
-
-                    <div class="card">
-                        <div class="card-header">
-                            <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                Question #1
-                            </a>
-                        </div>
-                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                            <div class="card-body">
-                                Answer..
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                                Question #2
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                            <div class="card-body">
-                                Answer..
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                                Question #3
-                            </a>
-                        </div>
-                        <div id="collapseThree" class="collapse" data-parent="#accordion">
-                            <div class="card-body">
-                                Answer..
-                            </div>
-                        </div>
-                    </div>
-
+    @*delivary*@
+    <section class="ServicesDelivary">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-inline-block mr-lg-auto mr-md-auto mr-sm-auto">
+                <img src="~/Images/ProductsImgs/fooddeliverypic-1.jpg" />
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 d-inline-blockn mr-lg-auto mr-md-auto mr-sm-auto text-center DelivaryP">
+                <div>
+                    <h1>DELIVERY</h1>
+                    <p>Choose between numerous Risottos and other dishes on our menu. Simply place your order on .Risotteria Melotti delivers everything directly where you want it.&nbsp;</p>
+                    <p>This service is available during restaurant hours.</p>
+                    <input type="submit" value="Make an order" class="btn btn-default btn-primary" />
                 </div>
             </div>
-            <div style="position:relative; left:400px" class="col-lg-4 col-md-6 col-sm-12">
-                <div id="accordion1">
 
-                    <div class="card">
-                        <div class="collapsed card-header">
-                            <a class="card-link" data-toggle="collapse" href="#collapsefour">
-                                Question #4
-                            </a>
-                        </div>
-                        <div id="collapsefour" class="collapse show" data-parent="#accordion1">
-                            <div class="card-body">
-                                Answer..
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <a class="collapsed card-link" data-toggle="collapse" href="#collapsefive">
-                                Question #5
-                            </a>
-                        </div>
-                        <div id="collapsefive" class="collapse" data-parent="#accordion1">
-                            <div class="card-body">
-                                Answer..
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <a class="collapsed card-link" data-toggle="collapse" href="#collapsesex">
-                                Question #6
-                            </a>
-                        </div>
-                        <div id="collapsesex" class="collapse" data-parent="#accordion1">
-                            <div class="card-body">
-                                Answer..
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
-        <hr class="hr" />
+    </section>
+    <hr class="hr" />
 
-    </main>
+    @*Questions*@
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row col-md-12">
+                    <h1 class="About col-md-8">Questions</h1>
+                    @Html.ActionLink("Add New Question", "AddQuestions", "Services", null, new { id = "AddNew", @class = "btn btn-primary col-md-3" })
+                </div>
+                @foreach (var item in Model)
+                {
+
+                    <div class="accordion col-md-5" id="accordionExample_@item.QuestionID">
+                        <div class="card">
+                            <div class="card-header" id="headingOne_@item.QuestionID">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_@item.QuestionID" aria-expanded="true" aria-controls="collapseOne_@item.QuestionID">
+                                        @item.Question1
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne_@item.QuestionID" class="collapse show" aria-labelledby="headingOne_@item.QuestionID" data-parent="#accordionExample_@item.QuestionID">
+                                <div class="card-body">
+                                    @item.Answer
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                }
+            </div>
+
+        </div>
+
+
+    </section>
+</main>
 

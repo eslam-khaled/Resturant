@@ -22,12 +22,14 @@ nav ul li a {
         background-color: #dbcc1c
     }
 
-#carouselExampleCaptions {
-    margin-top: 5.6%;
+#CarsoulSection img{
+    max-width:100%;
+    width:90%;
+    height:500px;
+    max-height:700rem;
 }
-
-#Carousel img {
-    height: 500px;
+#CarsoulSection{
+    overflow:hidden;
 }
 
 .About {

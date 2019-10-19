@@ -16,8 +16,5 @@ namespace Resturant.Models
     {
         public int CommentID { get; set; }
         public string CommentText { get; set; }
-        public string UserName { get; set; }
-        public string PhotoPath { get; set; }
-        public System.DateTime CommentDate { get; set; }
     }
 }

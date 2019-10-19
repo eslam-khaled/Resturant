@@ -175,6 +175,7 @@
     <Compile Include="Models\Subscribe.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\test\getTimeAgo.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1774,6 +1775,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\BannerProducts.png" />
     <Content Include="Images\BannerServices.png" />
+    <Content Include="Images\CarsoulOne %282%29.png" />
+    <Content Include="Images\CarsoulOne.png" />
+    <Content Include="Images\CarsoulQulaity is our recipt.png" />
     <Content Include="Images\CockHealthy.jpg" />
     <Content Include="Images\CoverBanner2.jpg" />
     <Content Include="Images\DoSports.jpg" />
@@ -1967,6 +1971,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Products\EditProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

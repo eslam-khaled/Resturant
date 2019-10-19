@@ -35,7 +35,13 @@
                            data-size="1600x1067">
                             <img alt="picture" src="@item.PicturePath"
                                  class="img-fluid" />
-                            <h3 class="text-center my-3">@item.Name</h3>
+                            <div class="form-group row">
+                                <h3 class="text-center my-3">@item.Name</h3>
+                                <a href=" @Url.Action("EditProduct","Products",new { id=item.ProductID} )">Edit |</a>
+                                <p>
+                                    Delete
+                                </p>
+                            </div>
                         </a>
                     </figure>
                 }

@@ -44,20 +44,28 @@ namespace Resturant.Controllers
 
             _context.Products.Add(product);
             _context.SaveChanges();
-            return RedirectToAction("ProductIndex");
-        }
-        //public ActionResult EditProduct(int? id)
-        //{
-        //    Product product = _context.Products.Find(id);
-        //    return View();
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditProduct()
-        //{
 
-        //    return View();
-        //}
+            Product emptyProduct = new Product();
+            return RedirectToAction("AddProducts",emptyProduct);
+        }
+        public ActionResult EditProduct(int? id)
+        {
+            Product product = _context.Products.Find(id);
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProduct(Product product,int id)
+        {
+            var MyEdit = _context.Products.Where(c => c.ProductID == id).FirstOrDefault();
+            MyEdit.Name = product.Name;
+            MyEdit.Price = product.Price;
+            MyEdit.Size = product.Size;
+            MyEdit.Description = product.Description;
+            _context.SaveChanges();
+           
+            return View("EditProduct");
+        }
     }
 
 }

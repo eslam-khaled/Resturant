@@ -48,16 +48,11 @@ nav ul li a {
         margin-top: 100px;
     }
 
-    footer a {
-        color: black;
-    }
-/***************Home Page****************/
 #carouselExampleCaptions {
     margin-top: 5.6%;
 }
-
-#Carousel img {
-    height: 500px;
+#CarsoulSection{
+    overflow:hidden;
 }
 
 .About {

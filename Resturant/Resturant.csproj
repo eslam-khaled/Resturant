@@ -1975,6 +1975,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Database Scripts\" />
     <Folder Include="Uploads\" />
     <Folder Include="Views\ContactUs\" />
   </ItemGroup>

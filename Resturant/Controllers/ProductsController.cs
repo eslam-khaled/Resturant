@@ -10,10 +10,10 @@ namespace Resturant.Controllers
 {
     public class ProductsController : Controller
     {
-        ResturantEntities1 _context;
+        ResturantEntities _context;
         public ProductsController()
         {
-            _context = new ResturantEntities1();
+            _context = new ResturantEntities();
         }
         // GET: All Products
         public ActionResult ProductIndex()

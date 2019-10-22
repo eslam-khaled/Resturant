@@ -18,7 +18,7 @@ namespace Resturant.Controllers
         [HttpPost]
         public ActionResult Index(UserModel model)
         {
-            ResturantEntities1 cbe = new ResturantEntities1();
+            ResturantEntities cbe = new ResturantEntities();
             var s = cbe.GetLoginInfo(model.UserName, model.Password);
 
             var item = s.FirstOrDefault();

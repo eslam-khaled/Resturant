@@ -9,10 +9,10 @@ namespace Resturant.Controllers
 {
     public class ServicesController : Controller
     {
-        ResturantEntities1 _context;
+        ResturantEntities _context;
         public ServicesController()
         {
-            _context = new ResturantEntities1();
+            _context = new ResturantEntities();
         }
         // GET: Services
         public ActionResult Index()

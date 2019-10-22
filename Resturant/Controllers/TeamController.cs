@@ -11,10 +11,10 @@ namespace Resturant.Controllers
     
     public class TeamController : Controller
     {
-        ResturantEntities1 _context;
+        ResturantEntities _context;
         public TeamController()
         {
-            _context = new ResturantEntities1();
+            _context = new ResturantEntities();
         }
         // GET: Team
         public ActionResult Index()

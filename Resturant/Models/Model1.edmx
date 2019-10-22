@@ -20,7 +20,7 @@
           </Key>
           <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CommentText" Type="nvarchar" MaxLength="200" />
-          <Property Name="UserName" Type="nchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" />
           <Property Name="CommentDate" Type="datetime" Nullable="false" />
         </EntityType>
@@ -72,6 +72,16 @@
           <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="eMail" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Resturant.dbo.Team' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Team">
+          <Property Name="TeamMemberID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" />
+        </EntityType>-->
         <Function Name="GetLoginInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserName" Type="varchar" Mode="In" />
           <Parameter Name="Password" Type="varchar" Mode="In" />
@@ -104,9 +114,23 @@
           </Key>
           <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CommentText" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhotoPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="LoginInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="LoginFailedCount" Type="Int32" />
+          <Property Name="LoginIPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerTimeZone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastAccessedDate" Type="DateTime" Precision="3" />
+          <Property Name="AccountLocked" Type="Boolean" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -142,57 +166,58 @@
           <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="eMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="ResturantEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ResturantEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Atricles" EntityType="Self.Atricle" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="LoginInfoes" EntityType="Self.LoginInfo" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
           <EntitySet Name="Services" EntityType="Self.Service" />
           <EntitySet Name="Subscribes" EntityType="Self.Subscribe" />
-          <EntitySet Name="LoginInfoes" EntityType="ResturantModel.LoginInfo" />
           <FunctionImport Name="GetLoginInfo" ReturnType="Collection(String)">
             <Parameter Name="UserName" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
-        <EntityType Name="LoginInfo">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
-          <Property Name="LoginFailedCount" Type="Int32" />
-          <Property Name="LoginIPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerTimeZone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="LastAccessedDate" Type="DateTime" Precision="3" />
-          <Property Name="AccountLocked" Type="Boolean" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ResturantModelStoreContainer" CdmEntityContainer="ResturantEntities1">
+        <EntityContainerMapping StorageEntityContainer="ResturantModelStoreContainer" CdmEntityContainer="ResturantEntities">
           <EntitySetMapping Name="Atricles">
             <EntityTypeMapping TypeName="ResturantModel.Atricle">
               <MappingFragment StoreEntitySet="Atricle">
-                <ScalarProperty Name="TitleImage" ColumnName="TitleImage" />
                 <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ArticleText" ColumnName="ArticleText" />
+                <ScalarProperty Name="TitleImage" ColumnName="TitleImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="ResturantModel.Comment">
               <MappingFragment StoreEntitySet="Comments">
-                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
-                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="CommentID" ColumnName="CommentID" />
                 <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginInfoes">
+            <EntityTypeMapping TypeName="ResturantModel.LoginInfo">
+              <MappingFragment StoreEntitySet="LoginInfo">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LoginFailedCount" ColumnName="LoginFailedCount" />
+                <ScalarProperty Name="LoginIPAddress" ColumnName="LoginIPAddress" />
+                <ScalarProperty Name="CustomerTimeZone" ColumnName="CustomerTimeZone" />
+                <ScalarProperty Name="LastAccessedDate" ColumnName="LastAccessedDate" />
+                <ScalarProperty Name="AccountLocked" ColumnName="AccountLocked" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -231,21 +256,6 @@
               <MappingFragment StoreEntitySet="Subscribe">
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="eMail" ColumnName="eMail" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LoginInfoes">
-            <EntityTypeMapping TypeName="ResturantModel.LoginInfo">
-              <MappingFragment StoreEntitySet="LoginInfo">
-                <ScalarProperty Name="AccountLocked" ColumnName="AccountLocked" />
-                <ScalarProperty Name="LastAccessedDate" ColumnName="LastAccessedDate" />
-                <ScalarProperty Name="CustomerTimeZone" ColumnName="CustomerTimeZone" />
-                <ScalarProperty Name="LoginIPAddress" ColumnName="LoginIPAddress" />
-                <ScalarProperty Name="LoginFailedCount" ColumnName="LoginFailedCount" />
-                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

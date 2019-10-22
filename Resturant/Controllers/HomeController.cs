@@ -10,10 +10,10 @@ namespace Resturant.Controllers
     
     public class HomeController : Controller
     {
-        ResturantEntities1 _context;
+        ResturantEntities _context;
         public HomeController()
         {
-            _context = new ResturantEntities1();
+            _context = new ResturantEntities();
         }
         public ActionResult Index()
         {

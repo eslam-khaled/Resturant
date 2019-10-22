@@ -15,10 +15,10 @@ namespace Resturant.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ResturantEntities1 : DbContext
+    public partial class ResturantEntities : DbContext
     {
-        public ResturantEntities1()
-            : base("name=ResturantEntities1")
+        public ResturantEntities()
+            : base("name=ResturantEntities")
         {
         }
     
@@ -29,11 +29,11 @@ namespace Resturant.Models
     
         public virtual DbSet<Atricle> Atricles { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<LoginInfo> LoginInfoes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Subscribe> Subscribes { get; set; }
-        public virtual DbSet<LoginInfo> LoginInfoes { get; set; }
     
         public virtual ObjectResult<string> GetLoginInfo(string userName, string password)
         {
